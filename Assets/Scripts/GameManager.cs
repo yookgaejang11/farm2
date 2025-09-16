@@ -67,8 +67,26 @@ public class GameManager : MonoBehaviour
         {"red_wheat", 30000 }
     };
 
+    public Dictionary<string, int> bfCropPrice = new Dictionary<string, int>()
+    {
+        {"wheat", 3000 },
+        {"corn", 9000 },
+        {"carrot", 18000 },
+        {"blue_corn", 24000 },
+        {"red_wheat", 30000 }
+    };
+
 
     public Dictionary<string, int> curCropPrice = new Dictionary<string, int>()
+    {
+        {"wheat", 2000 },
+        {"corn", 0 },
+        {"carrot", 0 },
+        {"blue_corn", 0 },
+        {"red_wheat", 0 }
+    };
+
+    public Dictionary<string, int> ftCropPrice = new Dictionary<string, int>()
     {
         {"wheat", 2000 },
         {"corn", 0 },
@@ -133,6 +151,18 @@ public class GameManager : MonoBehaviour
                 whether = whether_type.ice_ball;
                 break;
         }
+
+        curCropPrice["wheat"] = Random.Range(2000, 4001);
+        curCropPrice["corn"] = Random.Range(6000, 12001);
+        curCropPrice["carrot"] = Random.Range(12000, 24000);
+
+
+
+        curCropPrice["blue_corn"] = Random.Range(16000, 32000);
+
+
+
+        curCropPrice["red_wheat"] = Random.Range(20000, 40000);
     }
 
     public int AllCount()
@@ -177,9 +207,39 @@ public class GameManager : MonoBehaviour
             if (inGameTime >= 24)
             {
                 inGameTime -= 24;
+                PriceChange();
+
             }
             time.text = Mathf.FloorToInt(inGameTime / 1).ToString("D2") + ":" +"00";
         }
+    }
+
+
+    public void PriceChange()
+    {
+        bfCropPrice["wheat"] = curCropPrice["wheat"];
+        bfCropPrice["corn"] = curCropPrice["corn"];
+        bfCropPrice["carrot"] = curCropPrice["carrot"];
+        bfCropPrice["blue_corn"] = curCropPrice["blue_corn"];
+        bfCropPrice["red_wheat"] = curCropPrice["red_wheat"];
+
+        curCropPrice["wheat"] = ftCropPrice["wheat"];
+        curCropPrice["corn"] = ftCropPrice["corn"];
+        curCropPrice["carrot"] = ftCropPrice["carrot"];
+        curCropPrice["blue_corn"] = ftCropPrice["blue_corn"];
+        curCropPrice["red_wheat"] = ftCropPrice["red_wheat"];
+
+        ftCropPrice["wheat"] = Random.Range(2000, 4001);
+        ftCropPrice["corn"] = Random.Range(6000, 12001);
+        ftCropPrice["carrot"] = Random.Range(12000, 24000);
+
+       
+       
+        ftCropPrice["blue_corn"] = Random.Range(16000, 32000);
+
+        
+       
+        ftCropPrice["red_wheat"] = Random.Range(20000, 40000);
     }
 
 
