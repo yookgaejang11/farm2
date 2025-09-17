@@ -53,7 +53,9 @@ public class GameManager : MonoBehaviour
     public int maxtired;
     public int curtired;
 
+    public GameObject gageColor;
 
+    public Slider TiredSlider;
     public GameObject happyImg;
     public bool happyDay = false;
     public int sunnyplus = 0;
@@ -176,6 +178,9 @@ public class GameManager : MonoBehaviour
 
 
         curCropPrice["red_wheat"] = Random.Range(20000, 40000);
+
+        TiredSlider.maxValue = maxtired;
+        TiredSlider.value = curtired;
     }
 
     public int AllCount()
@@ -227,6 +232,20 @@ public class GameManager : MonoBehaviour
                 sunnyplus = 0;
             }
             
+        }
+
+        TiredSlider.value = curtired;
+        if(curtired == 100)
+        {
+            gageColor.GetComponent<Image>().color = Color.red;
+        }
+        else if (curtired >= 50)
+        {
+            gageColor.GetComponent<Image>().color = new Color(236,134,0);
+        }
+        else
+        {
+            gageColor.GetComponent<Image>().color = Color.red;
         }
     }
 

@@ -47,12 +47,16 @@ public class Sleep : MonoBehaviour
             if(sleepTime >=10)
             {
                 value = 10 * 10 + 30;
-
+                
             }
             else
             {
                 value = sleepTime * 10 + 30;
+                
             }
+
+            
+
         }
         else
         {
@@ -66,6 +70,8 @@ public class Sleep : MonoBehaviour
                 value = sleepTime * 10;
             }
         }
+
+        valuetxt.text = value.ToString() + "È¸º¹";
     }
 
     public void sleep()
