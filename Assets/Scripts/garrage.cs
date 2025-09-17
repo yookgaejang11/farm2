@@ -43,6 +43,11 @@ public class garrage : MonoBehaviour
         currentSlot = objList.Count;
     }
 
+    public void CloseGarrage()
+    {
+        GameManager.Instance.GarrageUI.SetActive(false);
+    }
+
     public void Upgrade()
     {
         if(player.haveMoney >= price)

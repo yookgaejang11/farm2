@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,6 +49,14 @@ public class GameManager : MonoBehaviour
         ice_ball
     }
 
+
+    public int maxtired;
+    public int curtired;
+
+
+    public GameObject happyImg;
+    public bool happyDay = false;
+    public int sunnyplus = 0;
     public playerHoe hoe;
     public playerWaterCan waterCan;
     public whether_type whether;
@@ -151,6 +160,10 @@ public class GameManager : MonoBehaviour
                 whether = whether_type.ice_ball;
                 break;
         }
+        if(whether == whether_type.sunny)
+        {
+            sunnyplus += 1;
+        }
 
         curCropPrice["wheat"] = Random.Range(2000, 4001);
         curCropPrice["corn"] = Random.Range(6000, 12001);
@@ -195,6 +208,25 @@ public class GameManager : MonoBehaviour
                     whether = whether_type.ice_ball;
                     break;
             }
+
+            if (whether == whether_type.sunny)
+            {
+                sunnyplus += 1;
+                if(sunnyplus == 2)
+                {
+                    happyDay = true;
+                    happyImg.SetActive(true);
+                    sunnyplus = 0;
+                }
+
+            }
+            else
+            {
+                happyDay = false;
+               happyImg.SetActive(false);
+                sunnyplus = 0;
+            }
+            
         }
     }
 
