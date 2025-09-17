@@ -87,6 +87,7 @@ public class GetWater : MonoBehaviour
                             {
                                 hit.collider.GetComponent<Soil>().watering = 100;
                             }
+                            GameManager.Instance.curtired += 3;
                             curWater -= 1;
                             break;
                         }
@@ -97,6 +98,7 @@ public class GetWater : MonoBehaviour
                             {
                                 hit.collider.GetComponent<Soil>().watering = 100;
                             }
+                            GameManager.Instance.curtired += 3;
                             curWater -= 1;
                             break;
                         }

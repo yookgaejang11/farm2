@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public GameObject bed;
+    public Text bedTxt;
 
     public GameObject tvObj;
     public GameObject tvUI;
@@ -39,6 +41,10 @@ public class Player : MonoBehaviour
             {
                 tvUI.SetActive(true);
             }
+        }
+        else
+        {
+            insideTxt.text = string.Empty;
         }
 
         if(Vector2.Distance(transform.position, OutHouse.position) < homeDis)

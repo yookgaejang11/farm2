@@ -75,6 +75,7 @@ public class PlaceTile : MonoBehaviour
                         isPlaced.Add(diswPlayPos, spawnObj);
                         price = 20000;
                         firstPlace = false;
+                        GameManager.Instance.curtired += 2;
                     }
                 }
                 else
@@ -87,6 +88,7 @@ public class PlaceTile : MonoBehaviour
                         player.haveMoney -= price;
                         price *= 1.5f;
                         isPlaced.Add(diswPlayPos, spawnObj);
+                        GameManager.Instance.curtired += 2;
                     }
                     else if (Input.GetKeyDown(KeyCode.Mouse0) && !isPlace)
                     {

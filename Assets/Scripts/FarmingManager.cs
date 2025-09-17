@@ -256,7 +256,7 @@ public class FarmingManager : MonoBehaviour
 
                     
                 }
-
+                GameManager.Instance.curtired += 3;
                 Destroy(target.crops[SeedNum(target)].gameObject);
                 garrage.SortGarrage();
             }
